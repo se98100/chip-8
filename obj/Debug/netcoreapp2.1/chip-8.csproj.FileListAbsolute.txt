@@ -1,0 +1,11 @@
+C:\Users\Sergio\Desktop\chip-8\bin\Debug\netcoreapp2.1\chip-8.deps.json
+C:\Users\Sergio\Desktop\chip-8\bin\Debug\netcoreapp2.1\chip-8.runtimeconfig.json
+C:\Users\Sergio\Desktop\chip-8\bin\Debug\netcoreapp2.1\chip-8.runtimeconfig.dev.json
+C:\Users\Sergio\Desktop\chip-8\bin\Debug\netcoreapp2.1\chip-8.dll
+C:\Users\Sergio\Desktop\chip-8\bin\Debug\netcoreapp2.1\chip-8.pdb
+C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.csprojAssemblyReference.cache
+C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.csproj.CoreCompileInputs.cache
+C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.AssemblyInfoInputs.cache
+C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.AssemblyInfo.cs
+C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.dll
+C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.pdb
