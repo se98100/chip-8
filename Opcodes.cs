@@ -323,12 +323,14 @@ public class Opcodes
     {
         //Set delay timer = Vx.
         chip.Dt = chip.V[(opcode & 0x0F00) >> 8];
+        chip.RegTimer.Start();
         chip.Pc += 2;
     }
     private void O0xFX18()
     {
         //Set sound timer = Vx.
         chip.St = chip.V[(opcode & 0x0F00) >> 8];
+        chip.RegTimer.Start();
         chip.Pc += 2;
     }
     private void O0xFX1E()
