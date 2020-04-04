@@ -39,4 +39,14 @@ public class Memory
         for(int i=0; i<font.Length; i++)
             mem[i] = font[i];
     }
+
+    public byte Read(ushort addr)
+    {
+        return mem[addr];
+    }
+
+    public void Write(byte data, ushort addr)
+    {
+        mem[addr] = data;
+    }
 }
