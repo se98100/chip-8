@@ -1,6 +1,7 @@
 ﻿using System;
+using OpenTK.Graphics.OpenGL;
 
-namespace chip8_emulator
+namespace chip_8
 {
     class Program
     {
