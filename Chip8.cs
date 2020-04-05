@@ -29,13 +29,13 @@ public class Chip8
     public GFXMemory Vram { get => vram; set => vram = value; }
     public Timer RegTimer { get => regTimer; set => regTimer = value; }
 
-    public Chip8()
+    public Chip8(GFXMemory vram)
     {
         ram = new Memory();
         v = new byte[16];
         stack = new Stack<ushort>();
         keypad = new Keypad();
-        vram = new GFXMemory();
+        this.vram = vram;
         regTimer = new Timer(16.6666);
         regTimer.Elapsed += OnRegTimer;
         regTimer.AutoReset = true;
@@ -67,7 +67,7 @@ public class Chip8
     public void Cycle()
     {
         ushort h = ram.Read(pc);
-        byte l = ram.Read(pc);
+        byte l = ram.Read((ushort)(pc + 1));
         ushort opcode = (ushort)((h << 8) | l);
         opcodes.Exec(opcode);
     }

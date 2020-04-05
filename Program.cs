@@ -1,5 +1,4 @@
 ﻿using System;
-using OpenTK.Graphics.OpenGL;
 
 namespace chip_8
 {
@@ -7,7 +6,14 @@ namespace chip_8
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GFXMemory vram = new GFXMemory();
+            
+            Chip8 chip = new Chip8(vram);
+            chip.Init();
+            chip.Load(@"C:\Users\Sergio\Downloads\AstroDodge.ch8");
+
+            Render win = new Render(1200, 600, "Test", vram, chip);
+            win.Run(200);
         }
     }
 }

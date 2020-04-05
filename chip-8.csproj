@@ -6,4 +6,9 @@
     <RootNamespace>chip_8</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="opentk" Version="3.1.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
 </Project>

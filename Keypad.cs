@@ -25,4 +25,14 @@ public class Keypad
                 return i;
         return 0xFF;
     }
+
+    public void KeyDown(byte k)
+    {
+        keys[k] = 0x1;
+    }
+
+    public void KeyUp(byte k)
+    {
+        keys[k] = 0x0;
+    }
 }

@@ -9,3 +9,4 @@ C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.AssemblyInfo.cs
 C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.dll
 C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.pdb
 C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.genruntimeconfig.cache
+C:\Users\Sergio\Desktop\chip-8\obj\Debug\netcoreapp2.1\chip-8.csproj.CoreCompileInputs.cache

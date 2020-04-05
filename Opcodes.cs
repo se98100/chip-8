@@ -248,7 +248,7 @@ public class Opcodes
     private void O0xA()
     {
         //Set I = nnn.
-        chip.I = (byte)(opcode & 0x0FFF);
+        chip.I = (ushort)(opcode & 0x0FFF);
         chip.Pc += 2;
     }
 
@@ -271,7 +271,7 @@ public class Opcodes
         byte[] sprite = new byte[opcode & 0x000F];
         for(ushort i=chip.I; i<(ushort)((opcode & 0x000F) + chip.I); i++)
             sprite[i - chip.I] = chip.Ram.Read(i);
-        chip.Vram.DrawSprite(sprite, (byte)(opcode & 0x000F), chip.V[(opcode & 0x0F00) >> 8], chip.V[(opcode & 0x00F0) >> 4]);
+        chip.Vram.DrawSprite(sprite, (byte)(opcode & 0x000F), chip.V[(opcode & 0x00F0) >> 4], chip.V[(opcode & 0x0F00) >> 8]);
         if(chip.Vram.Collision)
             chip.V[0xF] = 0x1;
         else
@@ -323,14 +323,16 @@ public class Opcodes
     {
         //Set delay timer = Vx.
         chip.Dt = chip.V[(opcode & 0x0F00) >> 8];
-        chip.RegTimer.Start();
+        if(!chip.RegTimer.Enabled)
+            chip.RegTimer.Start();
         chip.Pc += 2;
     }
     private void O0xFX18()
     {
         //Set sound timer = Vx.
         chip.St = chip.V[(opcode & 0x0F00) >> 8];
-        chip.RegTimer.Start();
+        if(!chip.RegTimer.Enabled)
+            chip.RegTimer.Start();
         chip.Pc += 2;
     }
     private void O0xFX1E()
