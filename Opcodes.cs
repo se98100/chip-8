@@ -355,22 +355,22 @@ public class Opcodes
         byte tens = (byte)((n - hundreds * 100) / 10);
         byte units = (byte)(n - (tens * 10 + hundreds * 100));
         chip.Ram.Write(hundreds, chip.I);
-        chip.Ram.Write(tens, (byte)(chip.I + 0x1));
-        chip.Ram.Write(units, (byte)(chip.I + 0x2));
+        chip.Ram.Write(tens, (ushort)(chip.I + 0x1));
+        chip.Ram.Write(units, (ushort)(chip.I + 0x2));
         chip.Pc += 2; 
     }
     private void O0xFX55()
     {
         //Store registers V0 through Vx in memory starting at location I.
         for(byte i=0x0; i<=(byte)((opcode & 0x0F00) >> 8); i++)
-            chip.Ram.Write(chip.V[i], (byte)(chip.I + i));
+            chip.Ram.Write(chip.V[i], (ushort)(chip.I + i));
         chip.Pc += 2;
     }
     private void O0xFX65()
     {
         //Read registers V0 through Vx from memory starting at location I.
         for(byte i=0x0; i<=(byte)((opcode & 0x0F00) >> 8); i++)
-            chip.V[i] = chip.Ram.Read((byte)(chip.I + i));
+            chip.V[i] = chip.Ram.Read((ushort)(chip.I + i));
         chip.Pc += 2;
     }
 }
