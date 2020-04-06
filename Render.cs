@@ -108,7 +108,7 @@ public class Render : GameWindow
     private void InitVertices()
     {
         int c=0; double x = 0.03125, y = 0.0625;
-        for(int i=0;i<32;i++)
+        for(int i=0;i<=32;i++)
         {
             for(int j=0;j<64;j++)
             {
@@ -116,12 +116,6 @@ public class Render : GameWindow
                 if(j == 63)
                 {
                     vertices[c++] = x*(j+1) -1.0; vertices[c++] = -y*i +1.0; vertices[c++] = 0;
-                }
-                if(i == 31)
-                {
-                    vertices[c++] = x*j -1; vertices[c++] = -y*(i+1) +1; vertices[c++] = 0;
-                    if(j == 63)
-                        vertices[c++] = x*(j+1) -1; vertices[c++] = -y*(i+1) +1; vertices[c++] = 0;
                 }
             }
         }
