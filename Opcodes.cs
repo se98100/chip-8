@@ -312,10 +312,12 @@ public class Opcodes
     private void O0xFX0A()
     {
         //Wait for a key press, store the value of the key in Vx.
-        byte k;
-        while((k = chip.Keypad.IsDown()) == 0xFF);
-        chip.V[(opcode & 0x0F00) >> 8] = k;
-        chip.Pc += 2;
+        byte k = chip.Keypad.IsDown();
+        if(k != 0xFF)
+        {
+            chip.V[(opcode & 0x0F00) >> 8] = k;
+            chip.Pc += 2;
+        }
     }
     private void O0xFX15()
     {
@@ -338,7 +340,7 @@ public class Opcodes
     private void O0xFX29()
     {
         //Set I = location of sprite for digit Vx.
-        chip.I = (ushort)(chip.V[(opcode & 0x0F00) >> 8] * 0x5 + 0x1);
+        chip.I = (ushort)(chip.V[(opcode & 0x0F00) >> 8] * 0x5);
         chip.Pc += 2;
     }
     private void O0xFX33()
