@@ -14,7 +14,6 @@ public class Chip8
     private Stack<ushort> stack;
     private Keypad keypad;
     private GFXMemory vram;
-    private Timer regTimer;
     private Opcodes opcodes;
 
     public Memory Ram { get => ram; set => ram = value; }
@@ -27,7 +26,6 @@ public class Chip8
     public Stack<ushort> Stack { get => stack; set => stack = value; }
     public Keypad Keypad { get => keypad; set => keypad = value; }
     public GFXMemory Vram { get => vram; set => vram = value; }
-    public Timer RegTimer { get => regTimer; set => regTimer = value; }
 
     public Chip8(GFXMemory vram)
     {
@@ -36,9 +34,6 @@ public class Chip8
         stack = new Stack<ushort>();
         keypad = new Keypad();
         this.vram = vram;
-        regTimer = new Timer(16.6666);
-        regTimer.Elapsed += OnRegTimer;
-        regTimer.AutoReset = true;
         opcodes = new Opcodes(this);
     }
 
@@ -69,13 +64,8 @@ public class Chip8
         ushort h = ram.Read(pc);
         byte l = ram.Read((ushort)(pc + 1));
         ushort opcode = (ushort)((h << 8) | l);
-        opcodes.Exec(opcode);
-    }
-
-    private void OnRegTimer(Object o, ElapsedEventArgs e)
-    {
         if(st > 0) st--;
         if(dt > 0) dt--;
-        if(st == 0 && dt == 0) regTimer.Stop();
+        opcodes.Exec(opcode);
     }
 }

@@ -38,6 +38,12 @@ public class Render : GameWindow
         HandleKey(input, Key.Keypad7, 0x7);
         HandleKey(input, Key.Keypad8, 0x8);
         HandleKey(input, Key.Keypad9, 0x9);
+        HandleKey(input, Key.A, 0xA);
+        HandleKey(input, Key.S, 0xB);
+        HandleKey(input, Key.D, 0xC);
+        HandleKey(input, Key.F, 0xD);
+        HandleKey(input, Key.G, 0xE);
+        HandleKey(input, Key.H, 0xF);
         base.OnUpdateFrame(e);
     }
 

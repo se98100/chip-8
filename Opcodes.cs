@@ -312,27 +312,21 @@ public class Opcodes
     private void O0xFX0A()
     {
         //Wait for a key press, store the value of the key in Vx.
-        byte k = chip.Keypad.IsDown();
-        if(k != 0xFF)
-        {
-            chip.V[(opcode & 0x0F00) >> 8] = k;
-            chip.Pc += 2;
-        }
+        byte k;
+        while((k = chip.Keypad.IsDown()) == 0xFF);
+        chip.V[(opcode & 0x0F00) >> 8] = k;
+        chip.Pc += 2;
     }
     private void O0xFX15()
     {
         //Set delay timer = Vx.
         chip.Dt = chip.V[(opcode & 0x0F00) >> 8];
-        if(!chip.RegTimer.Enabled)
-            chip.RegTimer.Start();
         chip.Pc += 2;
     }
     private void O0xFX18()
     {
         //Set sound timer = Vx.
         chip.St = chip.V[(opcode & 0x0F00) >> 8];
-        if(!chip.RegTimer.Enabled)
-            chip.RegTimer.Start();
         chip.Pc += 2;
     }
     private void O0xFX1E()
